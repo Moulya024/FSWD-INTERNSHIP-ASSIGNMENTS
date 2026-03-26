@@ -1,0 +1,57 @@
+import { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [task, setTask] = useState("");
+  const [tasks, setTasks] = useState([]);
+
+  // Add task
+  const addTask = () => {
+    if (task.trim() === "") return;
+
+    setTasks([...tasks, task]);
+    setTask("");
+  };
+
+  // Delete single task
+  const deleteTask = (index) => {
+    const newTasks = tasks.filter((_, i) => i !== index);
+    setTasks(newTasks);
+  };
+
+  // Clear all tasks
+  const clearAll = () => {
+    setTasks([]);
+  };
+
+  return (
+    <div className="container">
+      <h1>Task List App</h1>
+
+      <input
+        type="text"
+        placeholder="Enter task..."
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
+      />
+
+      <button onClick={addTask}>Add</button>
+
+      {/* Clear All Button */}
+      {tasks.length > 0 && (
+        <button onClick={clearAll}>Clear All</button>
+      )}
+
+      <ul>
+        {tasks.map((t, index) => (
+          <li key={index}>
+            {t}
+            <button onClick={() => deleteTask(index)}>❌</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;

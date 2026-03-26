@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.container {
+  text-align: center;
+  padding: 50px;
+  height: 100vh;
+  transition: 0.3s;
+}
+
+.buttons button {
+  font-size: 30px;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+
+.buttons button:hover {
+  transform: scale(1.2);
+}
+
+.result {
+  margin-top: 30px;
+  font-size: 20px;
+}
